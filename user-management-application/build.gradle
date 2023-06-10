@@ -1,0 +1,25 @@
+plugins {
+    id 'java'
+    id 'org.springframework.boot' version '3.1.0'
+    id 'application'
+}
+
+apply plugin: 'java'
+apply plugin: 'org.springframework.boot'
+apply plugin: 'application'
+
+dependencies {
+    implementation project(':user-management-api')
+    implementation project(':user-management-core')
+}
+
+application {
+    mainClassName = 'com.smartclinic.usermanagement.Application'
+}
+
+group 'com.smartclinic.usermanagement'
+
+bootRun{
+    workingDir("..")
+    environment = System.getenv()
+}
