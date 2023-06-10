@@ -1,0 +1,41 @@
+plugins {
+    id 'java'
+    id 'io.spring.dependency-management' version '1.1.0'
+    id 'org.springframework.boot' version '3.1.0'
+}
+
+subprojects {
+    sourceCompatibility = '17'
+
+    apply plugin: 'java'
+    apply plugin: 'io.spring.dependency-management'
+    apply plugin: 'org.springframework.boot'
+
+    configurations {
+        compileOnly {
+            extendsFrom annotationProcessor
+        }
+    }
+
+    dependencies {
+        implementation 'org.springframework.boot:spring-boot-starter-web'
+        implementation 'org.springframework.boot:spring-boot-autoconfigure'
+        compileOnly 'org.projectlombok:lombok'
+        annotationProcessor 'org.projectlombok:lombok'
+        testImplementation 'org.springframework.boot:spring-boot-starter-test'
+    }
+
+//    test {
+//        useJUnitPlatform()
+//    }
+}
+
+allprojects {
+    repositories {
+        mavenCentral()
+    }
+}
+
+bootJar {
+    enabled = false
+}
