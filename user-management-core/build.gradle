@@ -1,0 +1,15 @@
+dependencies {
+    // aspectj AOP
+    implementation 'org.aspectj:aspectjweaver:1.9.19'
+
+    // spring boot AOP
+    implementation 'org.springframework.boot:spring-boot-starter-aop'
+    implementation 'commons-collections:commons-collections:3.2.2'
+//    implementation 'org.postgresql:postgresql'
+    implementation 'com.h2database:h2'
+
+}
+
+bootJar {
+    enabled = false
+}
